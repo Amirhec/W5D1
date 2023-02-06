@@ -5,10 +5,7 @@ class MaxIntSet
   def initialize(max)
     @store = Array.new(max,false)
   
-
   end
-
- 
 
   def insert(num)
     self.store.push[num] = true 
@@ -20,11 +17,14 @@ class MaxIntSet
   end
 
   def remove(num)
-
+    @store[num] = false
   end
 
   def include?(num)
-
+    if self.store[num] == true
+      return true
+    end
+    false
  
   end
   private
