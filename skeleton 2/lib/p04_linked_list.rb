@@ -21,6 +21,9 @@ end
 
 class LinkedList
   def initialize
+    @head = Node.new
+    @tail = Node.new
+    
   end
 
   def [](i)
@@ -38,9 +41,20 @@ class LinkedList
   end
 
   def get(key)
+    
   end
 
   def include?(key)
+    arr = []
+    i = 0
+      while i < self.length
+        if self[i].key == key
+          arr.push(self[i].key)
+        end
+        i+=1
+      end
+
+      return arr.length > 1
   end
 
   def append(key, val)
