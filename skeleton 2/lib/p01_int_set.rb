@@ -10,6 +10,8 @@ class MaxIntSet
   def insert(num)
     self.store.push[num] = true 
 
+ 
+
   if @store[num] == false
     return false 
   end
@@ -21,6 +23,7 @@ class MaxIntSet
   end
 
   def include?(num)
+    validate!(num)
     if self.store[num] == true
       return true
     end
@@ -31,9 +34,13 @@ class MaxIntSet
 
   def is_valid?(num)
 
+    num.between?(0,self.store.length - 1)
+
   end
 
   def validate!(num)
+
+    raise "error" unless is_valid?(num)
 
   end
 end
@@ -45,12 +52,16 @@ class IntSet
   end
 
   def insert(num)
+    self[num] << num
   end
 
   def remove(num)
+
+    self[num].delete(num)
   end
 
   def include?(num)
+    self[num].include?(num)
   end
 
   private
